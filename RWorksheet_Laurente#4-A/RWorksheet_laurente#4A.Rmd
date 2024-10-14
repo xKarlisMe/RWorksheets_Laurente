@@ -1,0 +1,115 @@
+---
+title: "RWorksheet_Laurente#4A"
+author: "Karl"
+date: "2024-10-14"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#CS 101
+#Karl Andrei G. Laurente
+#BSIT 2-B
+
+```{r}
+#1.) 
+#a.) 
+Shoe_Size <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
+Height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.75, 67.0, 71.0, 71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0)
+Gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M", "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+length(Shoe_Size)
+length(Height)
+length(Gender)
+a_one <- data.frame(Shoe_Size, Height, Gender)
+a_one
+#The data shows the shoe sizes, height, and gender of each individual customer. The shoe sizes are in US sizes, Height is measured in inches, and Gender is categorized to F and M, F meaning Female, and M to Male. 
+```
+
+```{r}
+#1.)
+#b.) 
+male_only <- a_one[a_one$Gender == "M", ]
+male_only
+female_only <- a_one[a_one$Gender == "F", ]
+female_only
+```
+
+```{r}
+#2.) 
+#c.) 
+mean(a_one$Shoe_Size)
+mean(a_one$Height)
+```
+
+```{r}
+#1.) 
+#d.) 
+#The shorter their height is, the smaller their shoe size gets and vice versa. That's because shoe size is directly proportional to height. 
+```
+
+```{r}
+#2.) 
+months <- c("March","April","January","November","January", "September","October","September","November","August", "January","November","November","February","May","August", "July","December","August","August","September","November","February","April")
+months
+factor_months <- factor(months, levels = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
+factor_months
+sort(factor_months)
+```
+
+```{r}
+#3.) 
+summary(months)
+summary(factor_months)
+#The summary on months display the length of the vector which has 24 elements, also presents the data type of the vector as well as its mode which also shows character.
+#The summary on factor_months only displays how much a string of characters repeat itself inside the vector. 
+```
+
+```{r}
+#4.) 
+#a.) 
+four_a <- data.frame(
+          Direction = c("East", "West", "North"),
+          Frequency = c(1, 4, 3)
+)
+four_a
+new_order_data <- factor(four_a, levels = c("East", "West", "North"))
+new_order_data
+```
+
+```{r}
+#5.) 
+#a.)
+read.table(file = "import_march.csv", header = TRUE, sep = ",")
+```
+
+```{r}
+#5.) 
+#b.) 
+read.table(file = "import_march.csv", header = TRUE, sep = ",")
+```
+
