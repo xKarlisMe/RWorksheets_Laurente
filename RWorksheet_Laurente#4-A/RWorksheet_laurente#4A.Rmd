@@ -1,0 +1,255 @@
+---
+title: "RWorksheet_Laurente#4A"
+author: "Karl"
+date: "2024-10-14"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+#CS 101
+#Karl Andrei G. Laurente
+#BSIT 2-B
+
+```{r}
+#1.) 
+#a.) 
+Shoe_Size <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
+Height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.75, 67.0, 71.0, 71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0)
+Gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M", "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+length(Shoe_Size)
+length(Height)
+length(Gender)
+a_one <- data.frame(Shoe_Size, Height, Gender)
+a_one
+#The data shows the shoe sizes, height, and gender of each individual customer. The shoe sizes are in US sizes, Height is measured in inches, and Gender is categorized to F and M, F meaning Female, and M to Male. 
+```
+
+```{r}
+#1.)
+#b.) 
+male_only <- a_one[a_one$Gender == "M", ]
+male_only
+female_only <- a_one[a_one$Gender == "F", ]
+female_only
+```
+
+```{r}
+#1.) 
+#c.) 
+mean(a_one$Shoe_Size)
+mean(a_one$Height)
+```
+
+```{r}
+#1.) 
+#d.) 
+#The shorter their height is, the smaller their shoe size gets and vice versa. That's because shoe size is directly proportional to height. 
+```
+
+```{r}
+#2.) 
+months <- c("March","April","January","November","January", "September","October","September","November","August", "January","November","November","February","May","August", "July","December","August","August","September","November","February","April")
+months
+factor_months <- factor(months, levels = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
+factor_months
+sort(factor_months)
+```
+
+```{r}
+#3.) 
+summary(months)
+summary(factor_months)
+#The summary on months display the length of the vector which has 24 elements, also presents the data type of the vector as well as its mode which also shows character.
+#The summary on factor_months only displays how much a string of characters repeat itself inside the vector. 
+```
+
+```{r}
+#4.) 
+#a.) 
+four_a <- data.frame(
+          Direction = c("East", "West", "North"),
+          Frequency = c(1, 4, 3)
+)
+four_a
+new_order_data <- factor(four_a, levels = c("East", "West", "North"))
+new_order_data
+```
+
+```{r}
+#5.) 
+#a.)
+read.table(file = "import_march.csv", header = TRUE, sep = ",")
+```
+
+```{r}
+#5.) 
+#b.) 
+read.table(file = "import_march.csv", header = TRUE, sep = ",")
+```
+
+```{r}
+#6.) 
+#a.) 
+six_eyy <- as.integer(readline(prompt ="Enter a value between 1 to 50: "))
+six_eyy <- 20
+six_eyyy <- if (six_eyy == 20){
+  print("TRUE")
+} else if (six_eyy < 50 & six_eyy > 0){
+  print(six_eyy)
+} else {
+  print("The number selected is beyond the range of 1 to 50")
+}
+six_eyyy
+```
+
+```{r}
+#7.) 
+#a.) 
+price <- as.integer(readline(prompt = "Enter price of snack: "))
+price <- 1500
+if (price %% 1000 == 0){
+  seven_one <- price/1000
+  cat("Minimum number of bills is", seven_one, "of 1000")
+} else if (price %% 500 == 0){
+  seven_two <- price/500
+  cat("Minimum number of bills is", seven_two, "of 500")
+} else if (price %% 200 == 0){
+  seven_three <- price/200
+  cat("Minimum number of bills is", seven_three, "of 200")
+} else if (price %% 100 == 0){
+  seven_four <- price/100
+  cat("Minimum number of bills is", seven_four, "of 100")
+} else if (price %% 50 == 0){
+  seven_five <- price/50
+  cat("Minimum number of bills is", seven_five, "of 50")
+} else {
+  print("Only input numbers divisible by 50")
+}
+```
+
+```{r}
+#8.) 
+#a.)
+eight_a <- data.frame(
+  Name = c("Annie", "Thea", "Steve", "Hanna"),
+  Grade1 = c(85, 65, 75, 95),
+  Grade2 = c(65, 75, 55, 75),
+  Grade3 = c(85, 90, 80, 100),
+  Grade4 = c(100, 90, 85, 90)
+)
+eight_a
+```
+
+```{r}
+#8.) 
+#b.) 
+dim(eight_a)
+Annie <- sum(eight_a[1, c(2,3,4,5)])
+Annie_mean <- Annie/4
+Annie_mean
+```
+
+```{r}
+#8.)
+#c.) 
+Grade_one <- sum(eight_a[, 2])
+Grade_two <- sum(eight_a[, 3])
+Grade_three <- sum(eight_a[, 4])
+Grade_four <- sum(eight_a[, 5])
+
+Grade_one_mean <- Grade_one/4
+Grade_two_mean <- Grade_two/4
+Grade_three_mean <- Grade_three/4
+Grade_four_mean <- Grade_four/4
+
+Grade_one_mean
+Grade_two_mean
+Grade_three_mean
+Grade_four_mean
+
+if (Grade_one_mean < 80){
+  print("The Grade 1 Test was difficult")
+} 
+
+if (Grade_two_mean < 80){
+  print("The Grade 2 Test was difficult")
+}
+if (Grade_three_mean < 80){
+  print("The Grade 3 Test was difficult")
+}
+if (Grade_four_mean < 80){
+  print("The Grade 4 Test was difficult")
+}
+```
+
+```{r}
+#8.)
+#d.) 
+Annie_grades <- data.frame(
+              Grade_1 = 85,
+              Grade_2 = 65, 
+              Grade_3 = 85,
+              Grade_4 = 100
+)
+Thea_grades <- data.frame(
+              Grade_1 = 65,
+              Grade_2 = 75,
+              Grade_3 = 90,
+              Grade_4 = 90
+)
+Steve_grades <- data.frame(
+              Grade_1 = 75,
+              Grade_2 = 55,
+              Grade_3 = 80,
+              Grade_4 = 85
+)
+Hanna_grades <- data.frame(
+              Grade_1 = 95,
+              Grade_2 = 75,
+              Grade_3 = 100,
+              Grade_4 = 90
+)
+Annie_final <- Annie_grades[Annie_grades > 90]
+Annie_highest <- sort(Annie_final, decreasing = TRUE)[1]
+Annie_highest
+
+Thea_final <- Thea_grades[Thea_grades > 90]
+Thea_highest <- sort(Thea_final, decreasing = TRUE)[1]
+Thea_highest
+
+Steve_final <- Steve_grades[Steve_grades > 90]
+Steve_highest <- sort(Steve_final, decreasing = TRUE)[1]
+Steve_highest
+
+Hanna_final <- Hanna_grades[Hanna_grades > 90]
+Hanna_highest <- sort(Hanna_final, decreasing = TRUE)[1]
+Hanna_highest
+```
+
