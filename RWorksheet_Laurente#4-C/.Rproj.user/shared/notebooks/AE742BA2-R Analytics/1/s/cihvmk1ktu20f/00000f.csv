@@ -1,0 +1,7 @@
+"0","url <- 'https://www.imdb.com/list/ls025873927/'"
+"0",""
+"0","session <- bow(url,"
+"0","               user_agent = ""Educational"")"
+"2","Error in bow(url, user_agent = ""Educational"") : 
+  could not find function ""bow""
+"

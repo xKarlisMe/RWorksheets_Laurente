@@ -1,0 +1,3 @@
+"0","#7.)"
+"0","#d.) "
+"0","ggplot(date_reviews, aes(date, total_reviews)) + geom_line() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + labs(title = ""Date and the number of verified reviews"", y = ""Total Reviews"", x = ""Date"")"

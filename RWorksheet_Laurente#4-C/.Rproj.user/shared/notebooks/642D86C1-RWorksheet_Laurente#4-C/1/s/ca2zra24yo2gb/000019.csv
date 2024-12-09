@@ -1,0 +1,5 @@
+"0","#7.) "
+"0","library(readxl)"
+"0",""
+"0","alexa <- read_xlsx(""alexa_file.xlsx"")"
+"0","head(alexa, 20)"

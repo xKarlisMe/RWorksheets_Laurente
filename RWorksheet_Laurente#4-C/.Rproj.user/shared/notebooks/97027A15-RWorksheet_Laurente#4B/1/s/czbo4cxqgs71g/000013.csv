@@ -1,0 +1,6 @@
+"0","#7.) "
+"0","#install.packages(""readxl"")"
+"0","#library(readxl)"
+"0",""
+"0","Alexa_file <- read.xlsx(""C:/Users/laure/Documents/Karl's Stuff/ISATU/2nd Year/Data Science/RWorksheet_Laurente/RWorksheets_Laurente/RWorksheet_Laurente#4-B/RWorksheets_Laurente#4B/RWorksheet_Laurente#4B/alexa_file.xlsx"")"
+"0","Alexa_file"

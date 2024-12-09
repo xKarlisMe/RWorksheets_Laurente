@@ -1,0 +1,1 @@
+"0","ggplot(mpg_20, aes(model,year)) + geom_point(color = ""blue"", size = 3) + labs(title = ""First 20 mpg data"", x = year, y = model)"

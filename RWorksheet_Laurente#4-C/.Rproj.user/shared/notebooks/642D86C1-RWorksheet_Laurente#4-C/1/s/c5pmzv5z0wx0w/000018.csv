@@ -1,0 +1,3 @@
+"0","#7.) "
+"0","#e.) "
+"0","ggplot(ratings_and_variations, aes(variation, number_of_verified_reviews)) + geom_point() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + labs(title = ""Relationship between variations and number of verified reviews"", x = ""Variation"", y = ""Number of verified reviews"")"

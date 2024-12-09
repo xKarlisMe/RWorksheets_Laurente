@@ -1,0 +1,103 @@
+---
+title: "R Analytics"
+author: "Karl"
+date: "2024-11-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```{r}
+install.packages("rvest")
+install.packages("dplyr")
+library(rvest)
+library(dplyr)
+```
+
+```{r}
+install.packages("polite")
+library(polite)
+
+install.packages("httr")
+library(httr)
+```
+
+
+```{r}
+# Install and load rvest
+#install.packages("rvest")
+#library(rvest)
+
+
+link = "https://www.imdb.com/list/ls025873927/"
+page = read_html(link)
+
+#name = page %>% html_nodes("")
+```
+
+```{r}
+#install.packages("tm")
+#library(tm)
+
+#install.packages("text")
+#library(text)
+```
+
+
+```{r}
+library(dplyr)
+
+#polite::use_manners(save_as='polite_scrap.R')
+#url <- 'https://www.imdb.com/list/ls025873927/'
+
+#url
+
+#rank_title <- character(0)
+#links <- character(0)
+
+#title_list <- scrape(session) %>% 
+  #html_nodes('h3.opc-title_text') %>%
+  #html_text
+
+#title_list2 <- read_html(url) %>%
+  #html_nodes('h3.ipc-title__text') %>%
+  #html_text
+```
+
+```{r}
+url <- 'https://www.imdb.com/list/ls025873927/'
+
+session <- bow(url,
+               user_agent = "Educational")
+session
+
+title_list <- scrape(session) %>%
+  html_nodes('h3.ipc-title__text') %>% 
+  html_text
+```
+

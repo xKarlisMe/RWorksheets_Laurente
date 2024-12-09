@@ -1,0 +1,7 @@
+"0","#7.) "
+"0","#b.) "
+"0","alexa_variations <- alexa %>%"
+"0","  group_by(variation) %>%"
+"0","  summarize(total = n())"
+"0",""
+"0","alexa_variations"

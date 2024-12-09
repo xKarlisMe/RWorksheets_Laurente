@@ -1,0 +1,6 @@
+"0","#7.) "
+"0","#d.) "
+"0","date_reviews <- alexa %>%"
+"0","  group_by(date) %>%"
+"0","  summarize(total_reviews = n())"
+"0","date_reviews"

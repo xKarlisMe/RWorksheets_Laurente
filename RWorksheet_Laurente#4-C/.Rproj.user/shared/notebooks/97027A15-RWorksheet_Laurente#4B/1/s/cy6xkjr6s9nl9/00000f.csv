@@ -1,0 +1,7 @@
+"0","#4.) "
+"0","#a.) "
+"0","#install.packages(""openxlsx"")"
+"0","#library(openxlsx)"
+"0",""
+"0","write.xlsx(four_df, ""Shoe Sizes.xlsx"")"
+"0",""

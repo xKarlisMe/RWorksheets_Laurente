@@ -1,0 +1,7 @@
+"0",""
+"0","print(""Last six rows of Versicolor:"")"
+"1","[1]"
+"1"," ""Last six rows of Versicolor:"""
+"1","
+"
+"0","print(last_six_versicolor)"

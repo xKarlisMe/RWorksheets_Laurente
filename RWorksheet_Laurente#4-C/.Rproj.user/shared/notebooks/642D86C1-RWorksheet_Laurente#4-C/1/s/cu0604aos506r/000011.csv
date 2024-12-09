@@ -1,0 +1,6 @@
+"0","#4.) "
+"0","#a.) "
+"0","ggplot(model_count, aes(model, count)) +"
+"0","  geom_bar(stat = ""identity"", fill = ""skyblue"") +"
+"0","  labs(title = ""Count of Cars per Model"", x = ""Model"", y = ""Count"") +"
+"0","  theme_minimal() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))"

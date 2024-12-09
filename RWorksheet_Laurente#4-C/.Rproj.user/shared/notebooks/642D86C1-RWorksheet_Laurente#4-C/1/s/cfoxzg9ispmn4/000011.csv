@@ -1,0 +1,3 @@
+"0","#6.) "
+"0","#b.) "
+"0","plot(count_junction$Junction, count_junction$n, cex = 5, col = ""red"", type=""l"")"

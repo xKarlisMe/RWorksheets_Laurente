@@ -1,0 +1,7 @@
+"0","#7.) "
+"0","#e.) "
+"0","ratings_and_variations <- alexa %>%"
+"0","  group_by(variation) %>%"
+"0","  summarize(number_of_verified_reviews = n())"
+"0",""
+"0","ratings_and_variations"

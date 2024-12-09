@@ -1,0 +1,261 @@
+---
+title: "RWorksheet_Laurente#4C"
+author: "Karl"
+date: "2024-11-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+```{r}
+#1.) 
+library(readxl)
+#a.) 
+mpg <- read.csv("mpg.csv")
+mpg
+```
+
+```{r}
+#1.) 
+#b.) 
+str(mpg)
+#Manufacturer, model, year, cyl, trans, drv, fl, and class are categorical variables
+```
+
+
+```{r}
+#1.)
+#c.)
+#The continuous variables are cty, hwy, and disply
+```
+
+```{r}
+#2.) 
+#library(ggplot2)
+#library(dplyr)
+
+manufacturer_models <- mpg %>%
+  group_by(manufacturer) %>%
+  summarize(models = paste(unique(model), collapse = ", "))
+
+manufacturer_models
+```
+
+```{r}
+#2.) 
+#b.) 
+models <- factor(manufacturer_models$models)
+models
+no_of_models <- c(3, 4, 4, 4, 1, 2, 1, 1, 1, 1, 3, 1, 2, 6, 4)
+no_of_models
+
+x <- seq(15)
+manufacturers <- manufacturer_models$manufacturer
+length(manufacturers)
+
+plot(x, no_of_models, main = "Test", ylab = "y-axis", xlab = "x-axis", cex = 5, col = "red", )
+legend("topright", legend = c(manufacturer_models$manufacturer))
+```
+
+```{r}
+#2.) 
+#b.) 
+ggplot(manufacturer_models, aes(x = reorder(manufacturers, models), y = models)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  coord_flip() +  # Flip coordinates for easier reading
+  labs(title = "Number of Unique Models by Manufacturer",
+       x = "Manufacturer",
+       y = "Number of Unique Models") +
+  theme_minimal()
+```
+
+```{r}
+#2.) 
+#a.)
+ggplot(mpg, aes(model, manufacturer)) + geom_point()
+```
+
+```{r}
+#2.) 
+#b.) 
+#Yes, it has some purpose and uses but only in limited applications and the design as well the visual clutter makes it hard to quickly understand what its meant to show
+```
+
+```{r}
+#3.) 
+model <- mpg$model[1:20]
+model
+year <- mpg$year[1:20]
+year
+mpg_20 <- mpg[1:20, ]
+
+mpg_20
+ggplot(mpg_20, aes(model,year)) + geom_point(color = "blue", size = 3) + labs(title = "First 20 mpg data", x = year, y = model)
+```
+
+```{r}
+#4.)
+model_count <- mpg %>%
+  group_by(model) %>%
+  summarize(count = n())
+model_count
+
+model_count <- model_count[1:20, ]
+model_count
+```
+
+```{r}
+#4.) 
+#a.) 
+ggplot(model_count, aes(model, count)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Count of Cars per Model", x = "Model", y = "Count") +
+  theme_minimal() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+```
+
+```{r}
+#4.) 
+#b.) 
+ggplot(model_count, aes(model, count)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Count of Cars per Model", x = "Model", y = "Count") +
+  theme_minimal() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + coord_flip()
+```
+
+```{r}
+#5.) 
+ggplot(mpg, aes(x = displ, y = cyl, color = factor(cyl))) + 
+  geom_point() + 
+  labs(title = "Relationship between No. of Cylinders and Engine Displacement",
+       x = "Engine Displacement (displ)",
+       y = "Number of Cylinders (cyl)",
+       color = "Cylinders") + 
+  theme_minimal()
+```
+
+```{r}
+#5.) 
+#a.) 
+#The higher the engine displacement are, the more cylinders are present. This means to say that Cylinders are directly proportional to Engine Displacement
+```
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  labs(title = "Relationship between Engine Displacement and Highway miles per gallon",
+       x = "Engine Displacement (displ)",
+       y = "Highway miles per gallon (hwy)") + 
+  theme_minimal()
+```
+
+```{r}
+#6.) 
+#I personally cannot comprehend the relationship between the two, but it appears that hwy appears more when the displ is in lower numbers
+```
+
+```{r}
+#6.) 
+traffic <- read.csv("traffic.csv")
+str(traffic)
+
+count_junction <- traffic %>%
+  count(Junction)
+
+print(count_junction)
+```
+
+```{r}
+#6.) 
+#b.) 
+plot(count_junction$Junction, count_junction$n, cex = 5, col = "red", type="l")
+```
+
+```{r}
+#7.) 
+library(readxl)
+
+alexa <- read_xlsx("alexa_file.xlsx")
+head(alexa, 20)
+str(alexa)
+```
+
+```{r}
+#7.) 
+#a.) 
+#3150 observations
+ncol(alexa)
+#5 columns
+```
+
+```{r}
+#7.) 
+#b.) 
+alexa_variations <- alexa %>%
+  group_by(variation) %>%
+  summarize(total = n())
+
+alexa_variations
+```
+
+```{r}
+#7.) 
+#c.) 
+ggplot(alexa_variations, aes(variation, total)) + geom_point() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+```
+
+```{r}
+#7.) 
+#d.) 
+date_reviews <- alexa %>%
+  group_by(date) %>%
+  summarize(total_reviews = n())
+date_reviews
+```
+
+```{r}
+#7.)
+#d.) 
+ggplot(date_reviews, aes(date, total_reviews)) + geom_line() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + labs(title = "Date and the number of verified reviews", y = "Total Reviews", x = "Date")
+```
+
+```{r}
+#7.) 
+#e.) 
+ratings_and_variations <- alexa %>%
+  group_by(variation) %>%
+  summarize(number_of_verified_reviews = n())
+
+ratings_and_variations
+```
+
+```{r}
+#7.) 
+#e.) 
+ggplot(ratings_and_variations, aes(variation, number_of_verified_reviews)) + geom_point() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + labs(title = "Relationship between variations and number of verified reviews", x = "Variation", y = "Number of verified reviews")
+#The Black Dot variation has the highest rating with over 516 number of verified reviews
+```
+
